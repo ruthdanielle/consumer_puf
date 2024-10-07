@@ -11,8 +11,8 @@ export class UserService {
         private readonly userRepository: Repository<UserEntity>
     ){}
 
-    save(user: UserEntity) : UserEntity {
-        const createUser = this.userRepository.save(user);
+    async save(user: UserEntity) : Promise<UserEntity> {
+        const createUser = await this.userRepository.save(user);
 
         console.log('user saved');
         return user;
